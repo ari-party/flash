@@ -7,8 +7,8 @@
 
 Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, which exists out of 2 keys:
 
--   `AUTH` — The value of the `authorization` header in requests
--   `PORT` — The port the Express server will be listening on
+- `AUTH` — The value of the `authorization` header in requests
+- `PORT` — The port the Express server will be listening on
 
 ## Using Flash
 
@@ -41,11 +41,11 @@ Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, whi
 }
 ```
 
-### Example
+## Examples
 
 `POST /`
 
-```js
+```json
 {
 	"url": "https://www.google.com/?hl=en",
 	"screenWidth": 1920,
@@ -55,5 +55,20 @@ Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, whi
 ```
 
 Response returned in 383ms
-
 ![example](https://github.com/RobertsSpaceIndustries/Flash/assets/49074962/cb963bec-339a-4956-9abf-ff56adfdecc2)
+
+---
+
+`POST /`
+```json
+{
+	"url": "https://www.youtube.com/?hl=en",
+    	"screenWidth": 1920,
+    	"screenHeight": 1080,
+    	"enableJavaScript": true,
+    	"wait": 1000
+}
+```
+
+Response returned in 2.78s
+![example-2](https://github.com/RobertsSpaceIndustries/Flash/assets/49074962/fe0b8769-a419-4ca4-a12c-1ae9c9e37d48)
