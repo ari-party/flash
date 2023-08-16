@@ -18,7 +18,7 @@ Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, whi
 {
 	"url": "https://google.com",
 	"screenWidth": 1920, // The width of the Puppeteer page
-	"screenHeight": 1920, // The height
+	"screenHeight": 1080, // The height
 	// The parameters above are required
 	"clip": {
 		"x": 0, // Clip zone horizontal offset
