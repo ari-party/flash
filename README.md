@@ -51,7 +51,6 @@ Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, whi
 	"screenWidth": 1920,
 	"screenHeight": 1080,
 	"enableJavaScript": true
-
 }
 ```
 
