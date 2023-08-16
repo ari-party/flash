@@ -6,7 +6,7 @@ const app = express();
 
 // Authorization header check middleman
 app.use((req, res, next) => {
-	if (req.headers.authorization !== config.auth) return res.writeHead(401), res.end();
+	if (req.headers.authorization !== process.env.AUTH) return res.writeHead(401), res.end();
 	next();
 });
 // Use the body-parser Json
