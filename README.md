@@ -40,3 +40,21 @@ Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, whi
 	"quality": 0 // Quality of image, 0 - 100, not applicable on png
 }
 ```
+
+### Example
+
+`POST /`
+
+```js
+{
+	"url": "https://www.google.com/?hl=en",
+	"screenWidth": 1920,
+	"screenHeight": 1080,
+	"enableJavaScript": true
+
+}
+```
+
+Response returned in 383ms
+
+![example](https://github.com/RobertsSpaceIndustries/Flash/assets/49074962/cb963bec-339a-4956-9abf-ff56adfdecc2)
