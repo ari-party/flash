@@ -16,7 +16,7 @@ Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, whi
 
 ```json
 {
-	"url": "https://google.com",
+	"url": "https://google.com", // The url of the website to screenshot
 	"screenWidth": 1920, // The width of the Puppeteer page
 	"screenHeight": 1080, // The height
 	// The parameters above are required
