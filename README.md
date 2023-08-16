@@ -5,7 +5,7 @@
 
 ## Configuration
 
-Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, which exists out of 2 keys:
+Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, which exists out of 2 options:
 
 - `AUTH` — The value of the `authorization` header in requests
 - `PORT` — The port the Express server will be listening on
