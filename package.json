@@ -1,5 +1,6 @@
 {
   "name": "flash",
+  "description": "⚡ An open source screenshot API built with Puppeteer and Express 📸",
   "main": "src/index.js",
   "dependencies": {
     "body-parser": "^1.20.2",
