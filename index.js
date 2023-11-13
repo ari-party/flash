@@ -53,11 +53,13 @@ app.use(bodyParser.json());
 			if (req.body.waitForNetworkIdle && page) {
 				await page.waitForNetworkIdle();
 			}
+
 			if (req.body.waitForSelector && page) {
 				await page.waitForSelector(req.body.waitForSelector);
 			}
-			if (req.body.wait && page) {
-				await new Promise((r) => setTimeout(r, req.body.wait));
+
+			if ((req.body.wait || req.body.timeout) && page) {
+				await new Promise((r) => setTimeout(r, req.body.wait || req.body.timeout));
 			}
 
 			operationsComplete = true;
@@ -66,12 +68,15 @@ app.use(bodyParser.json());
 
 			let options = {
 				type: req.body.type || "png",
-				fullPage: req.body.full || false,
+				fullPage: !!req.body.full,
 				clip: req.body.clip,
+				omitBackground: !!req.body.omitBackground,
 			};
+
 			if (req.body.quality && req.body.type !== "png") {
 				options.quality = req.body.quality;
 			}
+
 			const screenshot = await page.screenshot(options);
 			if (res.writable) {
 				res.write(screenshot);
