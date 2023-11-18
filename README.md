@@ -31,7 +31,7 @@ Flash uses [dotenv](https://www.npmjs.com/package/dotenv) for configuration, whi
 	"waitForNetworkIdle": true, // If Puppeteer should wait until the page is network idling
 	// (https://pptr.dev/api/puppeteer.page.waitfornetworkidle)
 	"waitForSelector": false, // If Puppeteer should wait until the selector (CSS selector, string) is available on page
-	"timeout": 1000, // The time Puppeteer will wait before returning nothing as response, in ms
+	"wait": 1000, // The time Puppeteer will wait before returning nothing as response, in ms
 	"scale": 1, // Like deviceScaleFactor
 	// (https://pptr.dev/api/puppeteer.screenshotclip/#properties > scale)
 	"full": false, // Take a screenshot of the entire page, not just the viewport
