@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 			if (!req.body.url || !req.body.screenWidth || !req.body.screenHeight) return req.writeHead(400);
 
 			page = await browser.newPage();
-			await page.setJavaScriptEnabled(req.body.enableJavaScript || false);
+			await page.setJavaScriptEnabled(req.body.enableJavaScript ?? true);
 			await page.setViewport({
 				width: req.body.screenWidth,
 				height: req.body.screenHeight,
@@ -83,7 +83,7 @@ app.use(bodyParser.json());
 			}
 		} catch (err) {
 			console.error(err);
-			
+
 			if (res.writable) {
 				res.writeHead(500);
 			}
