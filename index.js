@@ -29,7 +29,11 @@ app.use(bodyParser.json());
 
 			page = await browser.newPage();
 			await page.setJavaScriptEnabled(req.body.enableJavaScript || false);
-			await page.setViewport({ width: req.body.screenWidth, height: req.body.screenHeight, deviceScaleFactor: req.body.scale || 1 });
+			await page.setViewport({
+				width: req.body.screenWidth,
+				height: req.body.screenHeight,
+				deviceScaleFactor: req.body.scale || 1,
+			});
 			await page.goto(req.body.url);
 
 			// Timeout parameter, end the process early and don't return the image because it's 'taking too long'
@@ -58,10 +62,6 @@ app.use(bodyParser.json());
 				await page.waitForSelector(req.body.waitForSelector);
 			}
 
-			if ((req.body.wait || req.body.timeout) && page) {
-				await new Promise((r) => setTimeout(r, req.body.wait || req.body.timeout));
-			}
-
 			operationsComplete = true;
 
 			if (!page) return;
@@ -83,6 +83,7 @@ app.use(bodyParser.json());
 			}
 		} catch (err) {
 			console.error(err);
+			
 			if (res.writable) {
 				res.writeHead(500);
 			}
