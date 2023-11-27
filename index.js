@@ -13,10 +13,18 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 (async () => {
-	const browser = await puppeteer.launch({
+	let browser = await puppeteer.launch({
 		headless: "new",
 		args: ["--no-sandbox"],
 		protocolTimeout: 180_000 * 2, // Timeout setting for individual protocol (CDP) calls. (https://pptr.dev/api/puppeteer.browserconnectoptions#properties)
+	});
+
+	browser.on("disconnected", async () => {
+		browser = await puppeteer.launch({
+			headless: "new",
+			args: ["--no-sandbox"],
+			protocolTimeout: 180_000 * 2, // Timeout setting for individual protocol (CDP) calls. (https://pptr.dev/api/puppeteer.browserconnectoptions#properties)
+		});
 	});
 
 	app.post("/", async (req, res) => {
